@@ -32,7 +32,7 @@ TrelloPowerUp.initialize({
             icon: './helper-icon.png',
             content: {
                 type: 'iframe',
-                url: './harvest-section.html',
+                url: t.signUrl('./harvest-section.html'),
                 height: 120
             }
         };
