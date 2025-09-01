@@ -58,7 +58,7 @@
 </head>
 <body>
     <div class="harvest-section">
-        <button class="track-time-button" onclick="openHarvestWidget()">
+        <button class="track-time-button" onclick="openHarvestWidget(event)">
             <span class="icon">⏱</span>
             Track Time
         </button>
@@ -68,7 +68,7 @@
     <script>
         var t = TrelloPowerUp.iframe();
         
-        function openHarvestWidget() {
+        function openHarvestWidget(mouseEvent) {
             // Get card details and open Harvest widget
             t.card('name', 'url', 'id')
                 .then(function(card) {
@@ -77,12 +77,13 @@
                         '&external_item_id=' + encodeURIComponent(card.id) +
                         '&external_item_url=' + encodeURIComponent(card.url);
                     
-                    // Open Harvest widget in popup
+                    // Open Harvest widget in popup - pass the mouse event for iframe context
                     return t.popup({
                         title: 'Track Time with Harvest',
                         url: harvestUrl,
                         height: 500,
-                        width: 400
+                        width: 400,
+                        mouseEvent: mouseEvent
                     });
                 })
                 .catch(function(error) {
