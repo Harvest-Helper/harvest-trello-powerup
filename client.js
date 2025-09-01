@@ -23,5 +23,18 @@ TrelloPowerUp.initialize({
                     });
             }
         }];
+    },
+    
+    // Card-back-section button that appears on the card itself
+    'card-back-section': function(t, options) {
+        return {
+            title: '',  // Remove the title
+            icon: '',   // Remove the icon
+            content: {
+                type: 'iframe',
+                url: t.signUrl('./harvest-section.html'),
+                height: 50  // Keep it small
+            }
+        };
     }
 });
