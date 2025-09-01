@@ -25,12 +25,11 @@ TrelloPowerUp.initialize({
         }];
     },
     
-    // Try card-detail-badges as well for different placement
-    'card-detail-badges': function(t, options) {
+    // Try card-badges for front-of-card placement
+    'card-badges': function(t, options) {
         return [{
-            title: 'Harvest',
-            text: 'Track Time',
-            icon: './helper-icon.png',
+            text: '⏱️',
+            color: 'orange',
             callback: function(t) {
                 return t.card('name', 'url', 'id')
                     .then(function(card) {
