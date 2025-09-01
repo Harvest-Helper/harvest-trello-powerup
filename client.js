@@ -7,12 +7,13 @@ TrelloPowerUp.initialize({
             icon: './helper-icon.png',
             text: 'Track Time',
             callback: function(t) {
-                return t.card('name', 'url', 'id')
+                return t.card('name', 'url', 'id', 'desc', 'due', 'labels')
                     .then(function(card) {
                         var harvestUrl = 'https://platform.harvestapp.com/platform/timer?' + 
-                            'external_item_name=' + encodeURIComponent(card.name) +
-                            '&external_item_id=' + encodeURIComponent(card.id) +
-                            '&external_item_url=' + encodeURIComponent(card.url);
+                            'app_name=' + encodeURIComponent('Trello') +
+                            '&permalink=' + encodeURIComponent(card.url) +
+                            '&external_item_name=' + encodeURIComponent(card.name) +
+                            '&external_item_id=' + encodeURIComponent(card.id);
                         
                         return t.modal({
                             url: harvestUrl,
