@@ -31,7 +31,7 @@ TrelloPowerUp.initialize({
         return [{
             title: 'Harvest Helper',
             text: 'Track Time',
-            color: 'orange',
+            color: null,
             callback: function(t, opts) {
                 return t.card('name', 'url', 'id', 'desc', 'due', 'labels')
                     .then(function(card) {
