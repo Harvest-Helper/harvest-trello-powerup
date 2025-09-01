@@ -16,7 +16,7 @@ TrelloPowerUp.initialize({
                         
                         return t.modal({
                             url: harvestUrl,
-                            height: 700,
+                            height: 550,
                             fullscreen: false,
                             title: 'Track Time with Harvest'
                         });
