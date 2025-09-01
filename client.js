@@ -8,7 +8,7 @@ TrelloPowerUp.initialize({
             title: 'Harvest Helper',
             text: 'Track Time',
             color: null,
-            icon: './helper-icon.svg',
+            icon: './helper-icon.png',
             callback: function(t, opts) {
                 return t.card('name', 'url', 'id', 'desc', 'due', 'labels')
                     .then(function(card) {
