@@ -26,6 +26,18 @@ TrelloPowerUp.initialize({
         }];
     },
     
+    // Test card-detail-badges to see positioning
+    'card-detail-badges': function(t, options) {
+        return [{
+            title: 'Test Badge',
+            text: 'TEST BUTTON',
+            color: 'orange',
+            callback: function(t, opts) {
+                alert('Test badge clicked! This appears at the top of the card back.');
+            }
+        }];
+    },
+    
     // Card-back-section button that appears on the card itself
     'card-back-section': function(t, options) {
         return {
