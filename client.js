@@ -15,8 +15,11 @@ TrelloPowerUp.initialize({
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
+                        // Create wrapper URL with Harvest widget embedded
+                        var wrapperUrl = t.signUrl('./harvest-wrapper.html?harvest_url=' + encodeURIComponent(harvestUrl));
+                        
                         return t.modal({
-                            url: harvestUrl,
+                            url: wrapperUrl,
                             height: 380,
                             fullscreen: false,
                             title: 'Harvest Helper'
@@ -41,8 +44,11 @@ TrelloPowerUp.initialize({
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
+                        // Create wrapper URL with Harvest widget embedded
+                        var wrapperUrl = t.signUrl('./harvest-wrapper.html?harvest_url=' + encodeURIComponent(harvestUrl));
+                        
                         return t.modal({
-                            url: harvestUrl,
+                            url: wrapperUrl,
                             height: 380,
                             fullscreen: false,
                             title: 'Harvest Helper'

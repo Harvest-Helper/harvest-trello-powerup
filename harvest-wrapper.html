@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Helper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .header h2 {
+            font-size: 16px;
+            color: #172b4d;
+            margin: 0;
+        }
+        
+        .close-btn {
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .close-btn:hover {
+            background: #e55a00;
+        }
+        
+        .iframe-container {
+            flex: 1;
+            position: relative;
+        }
+        
+        .harvest-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Track Time with Harvest</h2>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+    
+    <div class="iframe-container">
+        <div class="loading" id="loading">Loading Harvest...</div>
+        <iframe id="harvestIframe" class="harvest-iframe" src="about:blank" onload="hideLoading()"></iframe>
+    </div>
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script>
+        var t = TrelloPowerUp.iframe();
+        
+        function closeModal() {
+            t.closeModal();
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        // Get URL parameters and load the Harvest widget
+        t.render(function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var harvestUrl = urlParams.get('harvest_url');
+            
+            if (harvestUrl) {
+                document.getElementById('harvestIframe').src = decodeURIComponent(harvestUrl);
+            }
+        });
+        
+        // Listen for messages from the Harvest iframe (in case they send close signals)
+        window.addEventListener('message', function(event) {
+            // If Harvest sends a close message, close the modal
+            if (event.data && (event.data.action === 'close' || event.data.type === 'cancel')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
