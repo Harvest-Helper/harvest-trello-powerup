@@ -11,15 +11,13 @@ TrelloPowerUp.initialize({
                     .then(function(card) {
                         var harvestUrl = 'https://platform.harvestapp.com/platform/timer?' + 
                             'app_name=' + encodeURIComponent('Trello') +
+                            '&closable=false' +
                             '&permalink=' + encodeURIComponent(card.url) +
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
-                        // Create wrapper URL with Harvest widget embedded
-                        var wrapperUrl = t.signUrl('./harvest-wrapper.html?harvest_url=' + encodeURIComponent(harvestUrl));
-                        
                         return t.modal({
-                            url: wrapperUrl,
+                            url: harvestUrl,
                             height: 380,
                             fullscreen: false,
                             title: 'Harvest Helper'
@@ -40,15 +38,13 @@ TrelloPowerUp.initialize({
                     .then(function(card) {
                         var harvestUrl = 'https://platform.harvestapp.com/platform/timer?' + 
                             'app_name=' + encodeURIComponent('Trello') +
+                            '&closable=false' +
                             '&permalink=' + encodeURIComponent(card.url) +
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
-                        // Create wrapper URL with Harvest widget embedded
-                        var wrapperUrl = t.signUrl('./harvest-wrapper.html?harvest_url=' + encodeURIComponent(harvestUrl));
-                        
                         return t.modal({
-                            url: wrapperUrl,
+                            url: harvestUrl,
                             height: 380,
                             fullscreen: false,
                             title: 'Harvest Helper'
