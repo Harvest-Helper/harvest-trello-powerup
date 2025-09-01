@@ -4,7 +4,7 @@ var TrelloPowerUp = window.TrelloPowerUp;
 TrelloPowerUp.initialize({
     'card-buttons': function(t, options) {
         return [{
-            icon: 'https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@6.0.0/svgs/solid/clock.svg',
+            icon: './helper-icon.png',
             text: 'Track Time',
             callback: function(t) {
                 return t.card('name', 'url', 'id')
@@ -30,7 +30,7 @@ TrelloPowerUp.initialize({
         return [{
             title: 'Harvest',
             text: 'Track Time',
-            icon: 'https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@6.0.0/svgs/solid/clock.svg',
+            icon: './helper-icon.png',
             callback: function(t) {
                 return t.card('name', 'url', 'id')
                     .then(function(card) {
