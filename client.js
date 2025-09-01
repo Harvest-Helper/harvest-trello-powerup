@@ -28,12 +28,12 @@ TrelloPowerUp.initialize({
     // Create a custom section on the card back (like SubTasks does)
     'card-back-section': function(t, options) {
         return {
-            title: 'Time Tracking',
-            icon: './helper-icon.png',
+            title: '',  // Remove the title
+            icon: '',   // Remove the icon
             content: {
                 type: 'iframe',
                 url: t.signUrl('./harvest-section.html'),
-                height: 120
+                height: 50  // Make it even smaller
             }
         };
     }
