@@ -29,7 +29,7 @@ TrelloPowerUp.initialize({
     // Track Time button positioned next to SubTasks buttons!
     'card-detail-badges': function(t, options) {
         return [{
-            title: 'Time Tracking',
+            title: 'Harvest Helper',
             text: 'Track Time',
             color: 'orange',
             callback: function(t, opts) {
@@ -50,18 +50,5 @@ TrelloPowerUp.initialize({
                     });
             }
         }];
-    },
-    
-    // Card-back-section button that appears on the card itself
-    'card-back-section': function(t, options) {
-        return {
-            title: '',  // Remove the title
-            icon: '',   // Remove the icon
-            content: {
-                type: 'iframe',
-                url: t.signUrl('./harvest-section.html'),
-                height: 50  // Keep it small
-            }
-        };
     }
 });
