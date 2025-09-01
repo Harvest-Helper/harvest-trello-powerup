@@ -1,0 +1,22 @@
+{
+  "name": "Harvest Time Tracking",
+  "details": "Track time directly from Trello cards using Harvest's hosted widget",
+  "author": "Harvest Integration Team",
+  "capabilities": [
+    "card-buttons"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./index.html"
+    }
+  },
+  "icon": {
+    "url": "https://d2q2c5ljc9sa3c.cloudfront.net/assets/harvest-icon-32x32-3e35e94b.png"
+  },
+  "tags": [
+    "productivity",
+    "time-tracking",
+    "harvest",
+    "project-management"
+  ]
+}
