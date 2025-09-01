@@ -3,9 +3,7 @@
   "details": "Track time directly from Trello cards using Harvest's hosted widget",
   "author": "Harvest Integration Team",
   "capabilities": [
-    "card-buttons",
-    "card-detail-badges",
-    "card-back-section"
+    "card-buttons"
   ],
   "connectors": {
     "iframe": {
