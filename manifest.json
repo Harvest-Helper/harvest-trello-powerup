@@ -4,7 +4,7 @@
   "author": "Harvest Integration Team",
   "capabilities": [
     "card-buttons",
-    "card-badges"
+    "card-back-section"
   ],
   "connectors": {
     "iframe": {

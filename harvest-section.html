@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Time Tracking Section</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: transparent;
+        }
+        
+        .harvest-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .track-time-button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .track-time-button:hover {
+            background: #e55a00;
+        }
+        
+        .track-time-button:active {
+            background: #cc5200;
+        }
+        
+        .icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <div class="harvest-section">
+        <button class="track-time-button" onclick="openHarvestWidget()">
+            <span class="icon">⏱</span>
+            Track Time
+        </button>
+    </div>
+
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script>
+        var t = TrelloPowerUp.iframe();
+        
+        function openHarvestWidget() {
+            // Get card details and open Harvest widget
+            t.card('name', 'url', 'id')
+                .then(function(card) {
+                    var harvestUrl = 'https://platform.harvestapp.com/platform/timer?' + 
+                        'external_item_name=' + encodeURIComponent(card.name) +
+                        '&external_item_id=' + encodeURIComponent(card.id) +
+                        '&external_item_url=' + encodeURIComponent(card.url);
+                    
+                    // Open Harvest widget in popup
+                    return t.popup({
+                        title: 'Track Time with Harvest',
+                        url: harvestUrl,
+                        height: 500,
+                        width: 400
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Error opening Harvest widget:', error);
+                });
+        }
+        
+        // Size the iframe to fit content
+        t.render(function() {
+            return t.sizeTo('#harvest-section').done();
+        });
+    </script>
+</body>
+</html>
