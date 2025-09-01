@@ -15,11 +15,14 @@ TrelloPowerUp.initialize({
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
+                        // Create custom modal URL with Harvest widget embedded
+                        var customModalUrl = t.signUrl('./harvest-modal.html?harvest_url=' + encodeURIComponent(harvestUrl));
+                        
                         return t.modal({
-                            url: harvestUrl,
+                            url: customModalUrl,
                             height: 380,
                             fullscreen: false,
-                            title: 'Track Time with Harvest'
+                            title: 'Harvest Helper'
                         });
                     });
             }
@@ -41,11 +44,14 @@ TrelloPowerUp.initialize({
                             '&external_item_name=' + encodeURIComponent(card.name) +
                             '&external_item_id=' + encodeURIComponent(card.id);
                         
+                        // Create custom modal URL with Harvest widget embedded
+                        var customModalUrl = t.signUrl('./harvest-modal.html?harvest_url=' + encodeURIComponent(harvestUrl));
+                        
                         return t.modal({
-                            url: harvestUrl,
+                            url: customModalUrl,
                             height: 380,
                             fullscreen: false,
-                            title: 'Track Time with Harvest'
+                            title: 'Harvest Helper'
                         });
                     });
             }
