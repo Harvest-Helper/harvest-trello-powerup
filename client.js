@@ -2,6 +2,21 @@
 var TrelloPowerUp = window.TrelloPowerUp;
 
 TrelloPowerUp.initialize({
+    // Board button - appears in top navigation bar
+    'board-buttons': function(t, options) {
+        return [{
+            icon: './helper-icon.png',
+            text: 'Harvest Helper',
+            callback: function(t) {
+                return t.popup({
+                    title: 'Harvest Helper',
+                    url: './helper-popup.html',
+                    height: 200
+                });
+            }
+        }];
+    },
+    
     // Track Time button positioned next to SubTasks buttons
     'card-detail-badges': function(t, options) {
         return [{
