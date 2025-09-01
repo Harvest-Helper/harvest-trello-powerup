@@ -25,7 +25,31 @@ TrelloPowerUp.initialize({
         }];
     },
     
-    // Create a custom section on the card back (like SubTasks does)
+    // Try card-detail-badges for top positioning
+    'card-detail-badges': function(t, options) {
+        return [{
+            text: 'Track Time',
+            color: 'orange',
+            callback: function(t) {
+                return t.card('name', 'url', 'id')
+                    .then(function(card) {
+                        var harvestUrl = 'https://platform.harvestapp.com/platform/timer?' + 
+                            'external_item_name=' + encodeURIComponent(card.name) +
+                            '&external_item_id=' + encodeURIComponent(card.id) +
+                            '&external_item_url=' + encodeURIComponent(card.url);
+                        
+                        return t.popup({
+                            title: 'Track Time with Harvest',
+                            url: harvestUrl,
+                            height: 500,
+                            width: 400
+                        });
+                    });
+            }
+        }];
+    },
+    
+    // Keep the card-back-section as backup
     'card-back-section': function(t, options) {
         return {
             title: '',  // Remove the title
