@@ -11,7 +11,7 @@
     }
   },
   "icon": {
-    "url": "./helper-icon.png"
+    "url": "./helper-icon.svg"
   },
   "tags": [
     "productivity",
