@@ -79,12 +79,11 @@
                         '&external_item_url=' + encodeURIComponent(card.url);
                     
                     // Open Harvest widget in popup - pass the mouse event for iframe context
-                    return t.popup({
-                        title: 'Track Time with Harvest',
+                    return t.modal({
                         url: harvestUrl,
                         height: 700,
-                        width: 1200,
-                        mouseEvent: mouseEvent
+                        fullscreen: false,
+                        title: 'Track Time with Harvest'
                     });
                 })
                 .catch(function(error) {

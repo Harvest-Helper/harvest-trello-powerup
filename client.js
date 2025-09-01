@@ -14,11 +14,11 @@ TrelloPowerUp.initialize({
                             '&external_item_id=' + encodeURIComponent(card.id) +
                             '&external_item_url=' + encodeURIComponent(card.url);
                         
-                        return t.popup({
-                            title: 'Track Time with Harvest',
+                        return t.modal({
                             url: harvestUrl,
                             height: 700,
-                            width: 1200
+                            fullscreen: false,
+                            title: 'Track Time with Harvest'
                         });
                     });
             }
