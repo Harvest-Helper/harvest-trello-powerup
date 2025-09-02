@@ -11,9 +11,10 @@ TrelloPowerUp.initialize({
             },
             text: 'Harvest Helper',
             callback: function(t) {
-                return t.overlay({
+                return t.modal({
                     url: './helper-overlay.html',
-                    args: { source: 'board-button' }
+                    fullscreen: false,
+                    title: 'Harvest Helper'
                 });
             }
         }];
