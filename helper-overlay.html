@@ -6,6 +6,14 @@
     <title>Harvest Helper</title>
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css">
     <style>
+        /* Try to override modal title bar */
+        .modal-header, 
+        .trello-modal-header,
+        .power-up-modal-header {
+            background-color: #ff6600 !important;
+            color: white !important;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
@@ -184,7 +192,32 @@
         });
         
         t.render(function() {
-            // Overlay sizing is handled automatically
+            // Try to style the parent modal
+            try {
+                // Attempt to access parent modal elements
+                if (window.parent && window.parent.document) {
+                    var parentDoc = window.parent.document;
+                    var modalHeaders = parentDoc.querySelectorAll('.modal-header, .trello-modal-header, .power-up-modal-header, [data-testid="modal-header"]');
+                    
+                    modalHeaders.forEach(function(header) {
+                        header.style.backgroundColor = '#ff6600';
+                        header.style.color = 'white';
+                    });
+                    
+                    // Also try to find modal by class patterns
+                    var modals = parentDoc.querySelectorAll('[class*="modal"], [class*="Modal"]');
+                    modals.forEach(function(modal) {
+                        var header = modal.querySelector('[class*="header"], [class*="Header"]');
+                        if (header) {
+                            header.style.backgroundColor = '#ff6600';
+                            header.style.color = 'white';
+                        }
+                    });
+                }
+            } catch (e) {
+                // Cross-origin restrictions may prevent this
+                console.log('Could not access parent modal for styling');
+            }
         });
     </script>
 </body>
