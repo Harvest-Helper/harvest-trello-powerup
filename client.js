@@ -5,7 +5,10 @@ TrelloPowerUp.initialize({
     // Board button - appears in top navigation bar
     'board-buttons': function(t, options) {
         return [{
-            icon: './helper-icon.png',
+            icon: {
+                dark: 'https://lh3.googleusercontent.com/kMR8qX1JrKFKKPhTl7EV2OOsCwfbxstH6tJgXW7CgQWuAsCQHVb5Q5RYaD6N-mKylV4m2hBo8Tmsua0nXlOTcIWMctI=s120',
+                light: 'https://lh3.googleusercontent.com/kMR8qX1JrKFKKPhTl7EV2OOsCwfbxstH6tJgXW7CgQWuAsCQHVb5Q5RYaD6N-mKylV4m2hBo8Tmsua0nXlOTcIWMctI=s120'
+            },
             text: 'Harvest Helper',
             callback: function(t) {
                 return t.popup({
